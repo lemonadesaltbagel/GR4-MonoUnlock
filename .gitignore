@@ -1,0 +1,6 @@
+# RICOH firmware files are never committed; users download the official file themselves.
+*.bin
+# Local checksum list for the firmware files above
+SHA256SUMS
+output/
+.DS_Store
