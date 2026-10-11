@@ -1,6 +1,23 @@
-# GR4-MonoUnlock
+<p align="center">
+  <img src="assets/icon.png" width="112" height="112" alt="GR4-MonoUnlock icon: an aperture whose six blades are the six monochrome looks">
+</p>
 
-**Six monochrome looks for your RICOH GR IV.**
+<h1 align="center">GR4-MonoUnlock</h1>
+
+<p align="center">
+  <strong>The six monochrome looks of the GR IV Monochrome, on your RICOH GR IV.</strong>
+</p>
+
+<p align="center">
+  <strong>English</strong> |
+  <a href="README.ja.md">日本語</a> |
+  <a href="README.zh-CN.md">简体中文</a> |
+  <a href="README.zh-TW.md">繁體中文</a> |
+  <a href="README.ko.md">한국어</a> |
+  <a href="README.de.md">Deutsch</a> |
+  <a href="README.fr.md">Français</a> |
+  <a href="README.es.md">Español</a>
+</p>
 
 The monochrome-only GR IV comes with its own set of black-and-white looks.
 GR4-MonoUnlock brings all six of them to the standard GR IV, ready to use in
@@ -9,14 +26,33 @@ Everything else on your camera stays exactly as it was, and you can go back to
 the official firmware at any time.
 
 This repository contains no RICOH firmware. You download the official firmware
-from RICOH yourself; the included tool turns it into the unlocked version on
-your own computer.
+from RICOH yourself, and the included tool turns it into the unlocked version,
+on your own computer.
 
+> [!WARNING]
 > **Unofficial, at your own risk.** Not made or endorsed by RICOH IMAGING.
 > Installing modified firmware may void your warranty. Please read
 > [Before you start](#before-you-start) and [Risks](#risks) first.
 
-## The new looks
+| You want to | Go to |
+| --- | --- |
+| See which looks you get | [What you get](#what-you-get) |
+| Make the unlocked firmware (macOS, Windows, Linux) | [Make the firmware](#make-the-firmware) |
+| Install it | [Put it on the camera](#put-it-on-the-camera) |
+| Find out what a firmware file contains | [Check a firmware file](#check-a-firmware-file) |
+| Go back to RICOH's firmware | [Going back to the official firmware](#going-back-to-the-official-firmware) |
+
+**Contents:**
+[What you get](#what-you-get) |
+[Before you start](#before-you-start) |
+[Make the firmware](#make-the-firmware) |
+[Put it on the camera](#put-it-on-the-camera) |
+[Good to know](#good-to-know) |
+[Risks](#risks) |
+[Testing status](#testing-status) |
+[Files](#files)
+
+## What you get
 
 After installing, the Image Control list ends like this:
 
@@ -30,10 +66,14 @@ After installing, the Image Control list ends like this:
 | **Grainy** | Monochrome Grainy | ✓ | |
 | **HDR Tone** | Monochrome HDR *(experimental)* | ✓ | |
 
-- The same looks are available in **RAW Development** (in-camera RAW processing).
-- All your existing looks are unchanged.
-- Each new look starts at its own default settings; the sliders show **0** there,
+- The same looks are available in **RAW Development** (in-camera RAW
+  processing).
+- Each new look opens at its own default settings, with **every slider at 0**,
   just like the stock looks.
+- All your existing looks are unchanged.
+
+The icon shows them too: each blade of the aperture is one look, in the order
+of this list, clockwise from Standard at the top.
 
 ## Before you start
 
@@ -43,20 +83,16 @@ After installing, the Image Control list ends like this:
   camera's setup menu.
   - Older version: first update to 1.11 the normal way, with RICOH's official file.
   - Newer version: **do not use this tool.** It only supports 1.11.
+- **The official firmware file.** From RICOH IMAGING's official GR IV support
+  page, download **firmware version 1.11**. Unpack it if needed until you have
+  the file **`fwdc248b.bin`**.
 - **A fully charged battery.** A firmware update must never lose power.
 - **An SD card** you can format.
-- **A computer with Python 3.8 or newer.** macOS and most Linux systems already
-  have it; on Windows, install it from python.org. Nothing else is needed.
+- **Python 3.8 or newer.** macOS and most Linux systems already have it; on
+  Windows, install it from python.org. Nothing else is needed.
 - Note down any custom settings (C1, C2, …) you would not want to set up again.
 
-## Install
-
-### 1. Download the official firmware
-
-From RICOH IMAGING's official GR IV support page, download **firmware
-version 1.11**. Unpack it if needed until you have the file **`fwdc248b.bin`**.
-
-### 2. Make the unlocked firmware
+## Make the firmware
 
 Open a terminal in this folder and run (use the path where you saved the
 official file):
@@ -82,32 +118,36 @@ wrote output/fwdc248b.bin  (SHA-256 4c04b48c65897f2edd028df0f5e04666ca241488c815
 If something is wrong (for example a different firmware version, or a damaged
 download), it prints `refused: …` and writes **nothing**.
 
-### 3. Copy it to the SD card
+## Put it on the camera
+
+### 1. Copy it to the SD card
 
 1. **Format the SD card in the camera.**
 2. Copy **`output/fwdc248b.bin`** to the **top level** of the card: not into a
    folder, and keep the name exactly `fwdc248b.bin`.
 
-### 4. Update the camera
+### 2. Update the camera
 
 1. Insert the fully charged battery and the SD card.
 2. Start the firmware update from the camera's setup menu, as described in
    RICOH's official GR IV firmware update instructions.
 3. **The camera shows an update from version 1.11 to version 1.11.** This is
-   expected — the unlocked firmware keeps the version number. Confirm the update.
-4. **Do not turn the camera off, open the battery or card door, or remove the
-   card** until the update has finished and the camera has restarted.
+   expected: the unlocked firmware keeps the version number. Confirm the update.
 
-### 5. Enjoy
+> [!CAUTION]
+> **Do not turn the camera off, open the battery or card door, or remove the
+> card** until the update has finished and the camera has restarted.
+
+### 3. Shoot
 
 - Open **Image Control**: the new looks follow the first "HDR Tone".
-- The firmware version still shows **1.11** — that is normal.
+- The firmware version still shows **1.11**. That is normal.
 - Delete `fwdc248b.bin` from the card (or format the card) so the update is not
   started again by accident.
 
-## Going back to the official firmware
+### Going back to the official firmware
 
-Repeat steps 3–5 with the **official** `fwdc248b.bin` from RICOH instead. The
+Repeat steps 1–2 with the **official** `fwdc248b.bin` from RICOH instead. The
 camera again shows **1.11 → 1.11**; confirm it, and your camera is back to stock.
 
 ## Good to know
@@ -120,16 +160,21 @@ camera again shows **1.11 → 1.11**; confirm it, and your camera is back to sto
   than the other looks. It has not been tried on a camera yet; please report how
   it behaves.
 - **An official RICOH update removes the unlock.** It replaces the whole
-  firmware. This tool only supports 1.11; do not use it with another version.
+  firmware.
+- **Only for the standard GR IV on 1.11.** Never install the file on another
+  model, and do not use the tool with another firmware version.
 - **Before sending the camera for service,** go back to the official firmware.
-- To check any firmware file before copying it to a card:
 
-  ```sh
-  python3 gr4_monounlock.py check path/to/fwdc248b.bin
-  ```
+### Check a firmware file
 
-  It tells you whether the file is the official 1.11, the unlocked version made
-  by this tool, or something else.
+Before copying any firmware file to a card:
+
+```sh
+python3 gr4_monounlock.py check path/to/fwdc248b.bin
+```
+
+It tells you whether the file is the official 1.11, the unlocked version made
+by this tool, or something else.
 
 ## Risks
 
@@ -155,7 +200,8 @@ camera again shows **1.11 → 1.11**; confirm it, and your camera is back to sto
 ```
 GR4-MonoUnlock/
 ├── README.md            this guide
-└── gr4_monounlock.py    the tool
+├── gr4_monounlock.py    the tool
+└── assets/              the icon (SVG, and a 512 px PNG)
 ```
 
 | File | SHA-256 |

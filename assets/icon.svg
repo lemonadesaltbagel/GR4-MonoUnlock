@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>GR4-MonoUnlock</title>
+  <defs>
+    <linearGradient id="hdr" gradientUnits="userSpaceOnUse" x1="28.3" y1="217.2" x2="175.7" y2="39.4">
+      <stop offset="0" stop-color="#262626"/>
+      <stop offset="1" stop-color="#F0F0F0"/>
+    </linearGradient>
+    <filter id="grainfx" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="3.2" intercept="-1.1"/>
+        <feFuncG type="linear" slope="3.2" intercept="-1.1"/>
+        <feFuncB type="linear" slope="3.2" intercept="-1.1"/>
+      </feComponentTransfer>
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0.16 0.43 0.43 0.43 0.82"/>
+        <feFuncG type="discrete" tableValues="0.16 0.43 0.43 0.43 0.82"/>
+        <feFuncB type="discrete" tableValues="0.16 0.43 0.43 0.43 0.82"/>
+      </feComponentTransfer>
+    </filter>
+    <pattern id="grain" patternUnits="userSpaceOnUse" width="512" height="512">
+      <rect width="512" height="512" filter="url(#grainfx)"/>
+    </pattern>
+  </defs>
+  <circle cx="256" cy="256" r="252" fill="#000"/>
+  <circle cx="256" cy="256" r="244" fill="none" stroke="#9C9C9C" stroke-width="3"/>
+  <g>
+    <path d="M181.00,256.00 Q121.41,152.80 175.74,39.39 A231,231 0 0 1 403.46,78.19 Q278.09,87.84 218.50,191.05 Z" fill="#8E8E8E"><title>Standard</title></path>
+    <path d="M218.50,191.05 Q278.09,87.84 403.46,78.19 A231,231 0 0 1 483.72,294.80 Q412.67,191.05 293.50,191.05 Z" fill="#333333"><title>Solid</title></path>
+    <path d="M293.50,191.05 Q412.67,191.05 483.72,294.80 A231,231 0 0 1 336.26,472.61 Q390.59,359.20 331.00,256.00 Z" fill="#D4D4D4"><title>Soft</title></path>
+    <path d="M331.00,256.00 Q390.59,359.20 336.26,472.61 A231,231 0 0 1 108.54,433.81 Q233.91,424.16 293.50,320.95 Z" fill="#FFFFFF"><title>High Contrast</title></path>
+    <path d="M293.50,320.95 Q233.91,424.16 108.54,433.81 A231,231 0 0 1 28.28,217.20 Q99.33,320.95 218.50,320.95 Z" fill="url(#grain)"><title>Grainy</title></path>
+    <path d="M218.50,320.95 Q99.33,320.95 28.28,217.20 A231,231 0 0 1 175.74,39.39 Q121.41,152.80 181.00,256.00 Z" fill="url(#hdr)"><title>HDR</title></path>
+  </g>
+  <g fill="none" stroke="#000" stroke-width="4.0" stroke-linecap="round">
+    <path d="M293.50,191.05 Q412.67,191.05 483.72,294.80"/>
+    <path d="M331.00,256.00 Q390.59,359.20 336.26,472.61"/>
+    <path d="M293.50,320.95 Q233.91,424.16 108.54,433.81"/>
+    <path d="M218.50,320.95 Q99.33,320.95 28.28,217.20"/>
+    <path d="M181.00,256.00 Q121.41,152.80 175.74,39.39"/>
+    <path d="M218.50,191.05 Q278.09,87.84 403.46,78.19"/>
+  </g>
+</svg>
